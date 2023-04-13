@@ -50,7 +50,7 @@ public class AppearTime {
     }
 
     public static void main(String[] args) throws FileNotFoundException {
-        sorted("D:\\WorkSpace\\JavaStudy3\\JavaStudy3\\src\\day40Apr13th\\warAndPeace.txt");
+        sorted("/Users/azur/Documents/JavaStudy/src/day40Apr13th/warAndPeace.txt");
     }
 
 }
