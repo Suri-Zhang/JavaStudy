@@ -1,11 +1,7 @@
 package day29Nov17th;
 
-import java.io.File;
 import java.io.Serializable;
-import java.util.ArrayList;
 import java.util.Scanner;
-
-import static java.awt.SystemColor.info;
 
 
 public class Video extends Media implements Serializable, Comparable<Video> {

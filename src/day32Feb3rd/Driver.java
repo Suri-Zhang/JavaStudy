@@ -1,7 +1,5 @@
 package day32Feb3rd;
 
-import java.util.Arrays;
-
 public class Driver {
 
 	public static void main(String[] args) {

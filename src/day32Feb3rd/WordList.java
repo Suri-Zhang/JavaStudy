@@ -1,8 +1,6 @@
 package day32Feb3rd;
 
-import java.lang.reflect.Array;
 import java.util.Arrays;
-import java.util.LinkedList;
 
 /**
  * Implements an array-backed list of words.  The array will have a fixed capacity, meaning that once

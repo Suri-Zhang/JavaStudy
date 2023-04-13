@@ -1,12 +1,8 @@
 package day26Oct20th;
 
+import javax.swing.*;
 import java.awt.*;
 import java.util.ArrayList;
-import java.util.HashSet;
-import java.util.Random;
-import java.util.Set;
-
-import javax.swing.JPanel;
 
 /**
  * This class contains the paintable objects such as the enemies, turret, and

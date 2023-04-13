@@ -1,7 +1,5 @@
 package day25Oct6th;
 
-import javax.management.ObjectName;
-
 /**
  * @author Rex Joush
  * @time 2022.10.06

@@ -1,7 +1,5 @@
 package day38Mar17th;
 
-import day38Mar17th.GenericStack;
-
 import java.util.Stack;
 
 public class ConvertBin {

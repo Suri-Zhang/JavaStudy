@@ -1,12 +1,9 @@
 package day26Oct20th;
 
-import java.awt.Color;
-import java.awt.Graphics;
-import java.awt.Rectangle;
+import javax.swing.*;
+import java.awt.*;
 import java.util.ArrayList;
 import java.util.Random;
-
-import javax.swing.JComponent;
 
 public abstract class Enemy extends JComponent {
 

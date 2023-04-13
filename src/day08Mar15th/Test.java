@@ -1,10 +1,6 @@
  package day08Mar15th;
 
-import java.io.File;
-import java.io.FileNotFoundException;
-import java.util.Scanner;
-
-/**
+ /**
  * @author Rex Joush
  * @time 2022.03.15
  */

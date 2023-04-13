@@ -1,6 +1,7 @@
 package day26Oct20th;
-import java.awt.*;
+
 import javax.swing.*;
+import java.awt.*;
 
 /**
  * The top-level Frame class class for the Game.

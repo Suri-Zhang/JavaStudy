@@ -1,7 +1,5 @@
 package day21Sep12th;
 
-import java.util.Scanner;
-
 /**
  * @author Rex Joush
  * @time 2022.09.12

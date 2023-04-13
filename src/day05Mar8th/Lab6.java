@@ -1,7 +1,6 @@
 package day05Mar8th;
 
 import java.io.File;
-import java.io.FileNotFoundException;
 import java.util.Scanner;
 
 public class Lab6 {

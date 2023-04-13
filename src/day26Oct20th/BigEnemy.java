@@ -1,7 +1,6 @@
 package day26Oct20th;
 
-import java.awt.Color;
-import java.awt.Dimension;
+import java.awt.*;
 import java.util.ArrayList;
 import java.util.Random;
 

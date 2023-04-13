@@ -1,7 +1,5 @@
 package day20Jun15th;
 
-import day21Sep12th.Main;
-
 import java.util.Arrays;
 
 /**

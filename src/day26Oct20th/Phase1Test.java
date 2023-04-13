@@ -1,11 +1,10 @@
 package day26Oct20th;
 
+import java.awt.*;
+import java.util.ArrayList;
+
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertTrue;
-
-import java.awt.Rectangle;
-import java.util.ArrayList;
-import org.junit.Test;
 
 public class Phase1Test {
     /**
@@ -42,7 +41,7 @@ public class Phase1Test {
         return (Math.abs(startX - endX) / Math.abs(speed)) + 1;
     }
     
-    @Test
+    @org.junit.Test
     public void testBigEnemyConstructor() {
         final BigEnemy be = new BigEnemy(WIDTH, HEIGHT);
         final Rectangle bounds = be.getBounds();
@@ -53,7 +52,7 @@ public class Phase1Test {
         assertTrue(PanelBounds.contains(be.getBounds()));
     }
 
-    @Test
+    @org.junit.Test
     public void testBigEnemyOneMove() {
         final BigEnemy be = new BigEnemy(WIDTH - 56, HEIGHT);
         final Rectangle bounds = be.getBounds();
@@ -65,7 +64,7 @@ public class Phase1Test {
         assertTrue(Math.abs(be.getEnemySpeed()) == 4.0);
     }
     
-    @Test
+    @org.junit.Test
     public void testBigEnemyManyMoves() {
         final BigEnemy be = new BigEnemy(WIDTH - 56, HEIGHT);
         Rectangle initPos = be.getBounds();
@@ -89,7 +88,7 @@ public class Phase1Test {
         assertTrue(be.getX() <= initPos.x);
     }
     
-    @Test
+    @org.junit.Test
     public void testSmallEnemyConstructor() {
         final SmallEnemy se = new SmallEnemy(WIDTH, HEIGHT);
         final Rectangle bounds = se.getBounds();
@@ -100,7 +99,7 @@ public class Phase1Test {
         assertTrue(PanelBounds.contains(se.getBounds()));
     }
 
-    @Test
+    @org.junit.Test
     public void testSmallEnemyOneMove() {
         final SmallEnemy se = new SmallEnemy(WIDTH - 30, HEIGHT);
         final Rectangle bounds = se.getBounds();
@@ -114,7 +113,7 @@ public class Phase1Test {
         assertEquals(acceleration, 0.05, epsilon);
     }
     
-    @Test
+    @org.junit.Test
     public void testSmallEnemyManyMoves() {
         final SmallEnemy se = new SmallEnemy(WIDTH - 30, HEIGHT);
         Rectangle initPos = se.getBounds();
@@ -138,7 +137,7 @@ public class Phase1Test {
         assertTrue(se.getX() <= initPos.x);
     }
     
-    @Test
+    @org.junit.Test
     public void testMissileConstructor() {
         Missile m = new Missile(WIDTH / 2, HEIGHT / 2);
         assertEquals(m.getX(), WIDTH / 2);
@@ -148,7 +147,7 @@ public class Phase1Test {
         assertEquals(m.getMissileSpeed(), 5);
     }
     
-    @Test
+    @org.junit.Test
     public void testMissileOneMove() {
         Missile m = new Missile(WIDTH / 2, HEIGHT / 2);
         final Rectangle startPos = m.getBounds();
@@ -158,7 +157,7 @@ public class Phase1Test {
         assertEquals(startPos.y - m.getY(), m.getMissileSpeed());
     }
     
-    @Test
+    @org.junit.Test
     public void testMissileManyMovies() {
         Missile m = new Missile(WIDTH / 2, 15);
         ArrayList<Missile> list = new ArrayList<>();
@@ -199,7 +198,7 @@ public class Phase1Test {
         return missileList;
     }
     
-    @Test
+    @org.junit.Test
     public void testGamePlay() {
         BigEnemy be = new BigEnemy(WIDTH / 2, HEIGHT);
         SmallEnemy se = new SmallEnemy(WIDTH / 2, HEIGHT);

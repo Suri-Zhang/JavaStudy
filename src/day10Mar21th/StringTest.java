@@ -1,7 +1,5 @@
 package day10Mar21th;
 
-import java.util.Comparator;
-
 /**
  * @author Rex Joush
  * @time 2022.06.06
