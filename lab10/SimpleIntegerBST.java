@@ -1,4 +1,7 @@
+package lab10;
 
+import java.util.LinkedList;
+import java.util.Queue;
 
 /**
  * A simple BST that is only used to store Integer types. For use with Lab 10.
@@ -188,36 +191,111 @@ public class SimpleIntegerBST {
 	public int findTreeSum() {
 		/// implement this method that traverses the tree and returns the sum of all the
 		/// nodes - Do NOT modify method header- create additional methods if needed
-		return 0;
+		// 中序遍历，inorder
+		return inOrderSum2(root);
 	}
 
-	private int findTreeSum(TreeNode<Integer> current) {
-		int size = 0;
+	/**
+	 * 求 current 为根节点的树的总和
+	 * @param current 节点
+	 * @return 当前节点的数字总和
+	 */
+	private int inOrderSum2(TreeNode<Integer> current) {
 		if (current == null) {
 			return 0;
 		}
-		TreeNode<Integer> present = root;
-		//do Some recurring adding
-		findTreeSum(present);
-		if (current.element.compareTo(present.element) < 0) {
-			present = current;
-			current = current = current.left;
-			size += 1;
-		} else if (current.element.compareTo(present.element) > 0) {
-			present = current;
-			current = current.right;
-			size += 1;
-		} else {
+		int left = inOrderSum2(current.left);
+		int right = inOrderSum2(current.right);
+		return left + right + current.element;
+	}
+
+
+	public boolean isBalanced() {
+		return isBalanced(root);
+	}
+
+	private boolean isBalanced(TreeNode<Integer> root) {
+		// 左右子树的高度之差 <= 1
+		// 左右子树均平衡
+		if (root == null) {
+			return true;
+		}
+		int left = findTreeHeight(root.left);
+		int right = findTreeHeight(root.right);
+		boolean if1 = Math.abs(left - right) <= 1;
+		boolean if2 = isBalanced(root.left);
+		boolean if3 = isBalanced(root.right);
+		return if1 && if2 && if3;
+	}
+
+	/**
+	 * 求树高
+	 * @param root 树的根节点
+	 * @return 当前根节点的树高
+	 */
+	public int findTreeHeight(TreeNode<Integer> root) {
+		if (root == null) {
 			return 0;
 		}
-		if (current.element.compareTo(present.element) < 0) {
-			present.left = createNewNode(current.element);
-		}
+		int left = findTreeHeight(root.left);
+		int right = findTreeHeight(root.right);
+		return Math.max(left, right) + 1;
+	}
 
-		else {
-			present.right = createNewNode(current.element);
+	// 层序遍历求高度
+	public int findTreeHeight2(TreeNode<Integer> root) {
+		int layer = 0;
+		// 1.队列
+		Queue<TreeNode<Integer>> queue = new LinkedList<>();
+		queue.add(root);
+		while (!queue.isEmpty()) {
+			int size = queue.size();
+			for (int i = 0; i < size; i++) {
+				TreeNode<Integer> node = queue.poll();
+				if (node.left != null) {
+					queue.add(node.left);
+				}
+				if (node.right != null) {
+					queue.add(node.right);
+				}
+			}
+			layer++;
 		}
-			return size;
+		return layer;
+	}
+
+	private void inOrderSum(TreeNode<Integer> current) {
+		// int size = 0;
+		if (current == null) {
+			return;
+		}
+		// operator
+		// inOrderSum(current.left);
+		// sum += current.element;
+		// inOrderSum(current.right);
+
+//		TreeNode<Integer> present = root;
+//		//do Some recurring adding
+//		findTreeSum(present);
+//		if (current.element.compareTo(present.element) < 0) {
+//			present = current;
+//			current = current = current.left;
+//			size += 1;
+//		} else if (current.element.compareTo(present.element) > 0) {
+//			present = current;
+//			current = current.right;
+//			size += 1;
+//		} else {
+//			return 0;
+//		}
+//		if (current.element.compareTo(present.element) < 0) {
+//			present.left = createNewNode(current.element);
+//		}
+//
+//		else {
+//			present.right = createNewNode(current.element);
+//		}
+//			return size;
 	}
 
 
@@ -225,7 +303,7 @@ public class SimpleIntegerBST {
 	public int findTreeHeight() {
 		// implement this method that finds the height of the tree (aka depth)
 		//  Do NOT modify method header- create additional methods if needed
-		return 0;
+		return findTreeHeight(root);
 	}
 
 	
