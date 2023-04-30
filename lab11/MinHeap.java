@@ -1,4 +1,3 @@
-package lab11;
 
 public class MinHeap {
     private int size;
@@ -44,9 +43,6 @@ public class MinHeap {
 
         // if this is size = 1 - this is first and only
         // element no need to do anything
-        if (size == 1) {
-            return;
-        }
 
         // otherwise start at bottom and check that element at
         // size is greater than parents (code given is
@@ -61,7 +57,7 @@ public class MinHeap {
 //        }
 
 
-        // while element has parents
+//         while element has parents
         while (index > 1) {
             // parent node can be found at index/2
             int parent = index / 2;
