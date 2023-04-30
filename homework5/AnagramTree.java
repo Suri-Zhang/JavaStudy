@@ -1,22 +1,16 @@
-/**
+package homework5; /**
  * This class creates and manipulates a TreeMap that contains
  * multiple ArrayLists of words that are anagrams of each other.
  * The key for each list is a String with the letters in alphabetical
  * order.   The sorted word (a String) will be the search key for the  tree, 
- * and all the words that have the same sorted form (like “rats” and
- *  “tars” and “arts”) will all be stored in an ArrayList at the 
- *  node with the sorted word key (in this case, with key “arst”).
+ * and all the words that have the same sorted form (like ï¿½ratsï¿½ and
+ *  ï¿½tarsï¿½ and ï¿½artsï¿½) will all be stored in an ArrayList at the 
+ *  node with the sorted word key (in this case, with key ï¿½arstï¿½).
  */
 
 import java.io.File;
 import java.io.FileReader;
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.Collection;
-import java.util.Collections;
-import java.util.List;
-import java.util.Scanner;
-import java.util.TreeMap;
+import java.util.*;
 
 public class AnagramTree {
     private TreeMap<String, ArrayList<String>> tree;
@@ -40,18 +34,25 @@ public class AnagramTree {
     	Scanner inFile = null;
     	try
     	{
-   
     		inFile = new Scanner(new File(filename));
     		while (inFile.hasNext())
     		{
-    			String word = inFile.next();
+    			String word = inFile.next(); // misorders  imsorders  deimorrss
+                if (word.length() > maxLen) {
+                    continue;
+                }
     			String sortedWord = sortWord(word);
-    			// if sortedWord is contained in tree as a key
+                ArrayList<String> strings;
+                // if sortedWord is contained in tree as a key
                 if (tree.containsKey(sortedWord)) {
-                    findMatches(sortedWord);
+                    strings = findMatches(sortedWord);
+                } else {
+                    strings = new ArrayList<>();
                 }
     			// add word to the ArrayList that is its value
-    			// FINISH THIS CODE
+                strings.add(word);
+                tree.put(sortedWord, strings);
+                // FINISH THIS CODE
     		}
     	}
     	catch (Exception ex)
@@ -63,17 +64,20 @@ public class AnagramTree {
 
     /**
      * Helper method to convert word to sorted version
-     * @param word
-     * @return String
+     * @param word misorders
+     * @return String deimorrss
      */
     private String sortWord (String word)
     {
     	// create empty String
-    	String sorted = new String();
-        
-    	// create sorted string
-    	// FINISH THIS CODE
-    	return sorted;
+        char[] chars = word.toCharArray();
+        Arrays.sort(chars);
+//        // create sorted string
+//    	// FINISH THIS CODE
+        return String.valueOf(chars);
+//        String s = String.valueOf(chars);
+//        StringBuilder sb = new StringBuilder(s);
+//        return sb.reverse().toString();
     	
     }
 
@@ -106,8 +110,17 @@ public class AnagramTree {
        int num = 0;
        // determine how many words are in the tree
 
+        for (Map.Entry<String, ArrayList<String>> entry : tree.entrySet()) {
+            ArrayList<String> strings = entry.getValue();
+            num += strings.size();
+        }
+//        Set<String> keySet = tree.keySet();
+//        for (String s : tree.keySet()) {
+//            ArrayList<String> strings = tree.get(s);
+//            num += strings.size();
+//        }
        // FINISH THIS CODE
-       return tree.size();
+       return num;
     }
     
    
@@ -122,7 +135,8 @@ public class AnagramTree {
     public ArrayList<String> findMatches(String sortedWord) {
     	
     	// WRITE THIS CODE
-        return null;
+        return tree.get(sortedWord);
+//        return tree.getOrDefault(sortedWord, new ArrayList<>());
     }
 
     /**
@@ -140,4 +154,5 @@ public class AnagramTree {
         }
         return myFile;
     }
+
 }
