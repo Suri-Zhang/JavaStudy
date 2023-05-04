@@ -1,4 +1,4 @@
-package homework5; /**
+ /**
  * This class creates and manipulates a TreeMap that contains
  * multiple ArrayLists of words that are anagrams of each other.
  * The key for each list is a String with the letters in alphabetical
